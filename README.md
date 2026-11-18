@@ -7,6 +7,18 @@ The visual style is deliberately plain: the interview task states the frontend i
 not a priority, so this exists to exercise every API endpoint and prove the JWT
 and role-based flows work across origins.
 
+## Live
+
+| | |
+| --- | --- |
+| **Site** | <https://secure-notes-web-iota.vercel.app> |
+| **API** | <https://secure-notes-api-nine.vercel.app> — the root lists every endpoint |
+| **API repo** | <https://github.com/zakirdaq/secure-notes-api> |
+
+Sign in with `admin@example.com` or `user1@example.com`, password
+`Password123!`. The admin sees user management and both aggregation views; the
+regular user sees only their own notes.
+
 ---
 
 ## Quick start
