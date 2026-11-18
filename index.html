@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Secure Notes</title>
+  </head>
+  <body>
+    <h1>Secure Notes</h1>
+    <p class="sub">
+      Deliberately unstyled client for the Secure Notes API — functionality only.
+      <span id="apiTarget" class="meta"></span>
+    </p>
+
+    <div id="status"></div>
+
+    <!-- ------------------------------ auth ------------------------------ -->
+    <section id="authSection">
+      <h2>Register / Login</h2>
+      <div class="row">
+        <input id="regName" placeholder="Name" />
+        <input id="regEmail" placeholder="Email" type="email" />
+        <input id="regPassword" placeholder="Password (8+ chars)" type="password" />
+        <input id="regInterests" placeholder="Interests (comma separated)" />
+        <button id="registerBtn">Register</button>
+      </div>
+      <hr />
+      <div class="row">
+        <input id="loginEmail" placeholder="Email" type="email" />
+        <input id="loginPassword" placeholder="Password" type="password" />
+        <button id="loginBtn">Login</button>
+      </div>
+    </section>
+
+    <section id="sessionSection" class="hidden">
+      <h2>Session</h2>
+      <div class="row">
+        <span id="whoami"></span>
+        <span id="roleBadge" class="pill"></span>
+        <button id="logoutBtn" class="secondary">Logout</button>
+      </div>
+    </section>
+
+    <!-- ------------------------------ notes ------------------------------ -->
+    <section id="notesSection" class="hidden">
+      <h2>My Notes</h2>
+      <div class="row">
+        <input id="noteTitle" placeholder="Title" />
+        <button id="createNoteBtn">Add note</button>
+        <label class="row" id="allNotesWrap" style="margin-left: auto">
+          <input type="checkbox" id="allNotes" />
+          <span class="meta">admin: all users' notes</span>
+        </label>
+      </div>
+      <textarea id="noteBody" placeholder="Body (optional)"></textarea>
+      <ul id="noteList"></ul>
+      <div class="row pager">
+        <button class="secondary" data-page="notes" data-dir="-1">Prev</button>
+        <span class="meta" id="notesMeta"></span>
+        <button class="secondary" data-page="notes" data-dir="1">Next</button>
+      </div>
+    </section>
+
+    <!-- ------------------------------ posts ------------------------------ -->
+    <section id="postsSection" class="hidden">
+      <h2>Posts <span class="meta">($lookup aggregation — public endpoint)</span></h2>
+      <div class="row">
+        <input id="postTitle" placeholder="Post title" />
+        <button id="createPostBtn">Add post</button>
+        <input id="postUserId" placeholder="User id (blank = me)" style="flex: 1; min-width: 220px" />
+        <button id="loadPostsBtn" class="secondary">Load user's posts</button>
+      </div>
+      <ul id="postList"></ul>
+      <div class="row pager">
+        <button class="secondary" data-page="posts" data-dir="-1">Prev</button>
+        <span class="meta" id="postsMeta"></span>
+        <button class="secondary" data-page="posts" data-dir="1">Next</button>
+      </div>
+    </section>
+
+    <!-- ------------------------------ admin ------------------------------ -->
+    <section id="adminSection" class="hidden">
+      <h2>Admin — Users</h2>
+      <div class="row">
+        <input id="newUserName" placeholder="Name" />
+        <input id="newUserEmail" placeholder="Email" type="email" />
+        <input id="newUserPassword" placeholder="Password" type="password" />
+        <select id="newUserRole">
+          <option value="user">user</option>
+          <option value="admin">admin</option>
+        </select>
+        <input id="newUserInterests" placeholder="Interests (comma separated)" />
+        <button id="createUserBtn">Create user</button>
+      </div>
+      <ul id="userList"></ul>
+      <div class="row pager">
+        <button class="secondary" data-page="users" data-dir="-1">Prev</button>
+        <span class="meta" id="usersMeta"></span>
+        <button class="secondary" data-page="users" data-dir="1">Next</button>
+      </div>
+    </section>
+
+    <section id="interestsSection" class="hidden">
+      <h2>Admin — Users grouped by interest <span class="meta">(single aggregate call)</span></h2>
+      <div class="row">
+        <input id="interestFilter" placeholder="Filter by one interest (optional)" />
+        <button id="loadInterestsBtn" class="secondary">Run aggregation</button>
+      </div>
+      <pre id="interestsOut">—</pre>
+      <div class="row pager">
+        <button class="secondary" data-page="interests" data-dir="-1">Prev</button>
+        <span class="meta" id="interestsMeta"></span>
+        <button class="secondary" data-page="interests" data-dir="1">Next</button>
+      </div>
+    </section>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

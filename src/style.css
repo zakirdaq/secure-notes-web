@@ -1,0 +1,95 @@
+:root {
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0 auto;
+  padding: 16px;
+  max-width: 980px;
+  background: #f7f7f8;
+  color: #18181b;
+}
+
+h1 { font-size: 1.35rem; margin: 0 0 4px; }
+h2 { font-size: 1rem; margin: 0 0 8px; }
+
+.sub { color: #71717a; font-size: 0.85rem; margin: 0 0 16px; }
+
+section {
+  background: #fff;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+hr { border: none; border-top: 1px solid #e4e4e7; margin: 12px 0; }
+
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+input, textarea, select, button {
+  font: inherit;
+  padding: 6px 9px;
+  border: 1px solid #d4d4d8;
+  border-radius: 6px;
+  background: #fff;
+}
+
+textarea { width: 100%; min-height: 60px; box-sizing: border-box; }
+
+button { cursor: pointer; background: #18181b; color: #fff; border-color: #18181b; }
+button.secondary { background: #fff; color: #18181b; border-color: #d4d4d8; }
+button.danger { background: #b91c1c; border-color: #b91c1c; color: #fff; }
+
+ul { list-style: none; padding: 0; margin: 10px 0 0; }
+
+li {
+  border-top: 1px solid #f0f0f1;
+  padding: 8px 0;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+li .meta, .meta { color: #71717a; font-size: 0.78rem; }
+
+pre {
+  background: #18181b;
+  color: #e4e4e7;
+  padding: 10px;
+  border-radius: 6px;
+  overflow: auto;
+  font-size: 0.78rem;
+  max-height: 260px;
+}
+
+.hidden { display: none; }
+
+.pill {
+  background: #f4f4f5;
+  border: 1px solid #e4e4e7;
+  border-radius: 999px;
+  padding: 1px 8px;
+  font-size: 0.75rem;
+}
+
+#status { font-size: 0.85rem; min-height: 1.2em; color: #b91c1c; }
+
+.pager { margin-top: 10px; gap: 6px; }
+
+@media (prefers-color-scheme: dark) {
+  body { background: #09090b; color: #fafafa; }
+  section { background: #18181b; border-color: #27272a; }
+  hr { border-color: #27272a; }
+  input, textarea, select, button.secondary {
+    background: #09090b;
+    color: #fafafa;
+    border-color: #3f3f46;
+  }
+  button { background: #fafafa; color: #09090b; border-color: #fafafa; }
+  button.danger { background: #b91c1c; border-color: #b91c1c; color: #fff; }
+  .pill { background: #27272a; border-color: #3f3f46; }
+  li { border-color: #27272a; }
+}
